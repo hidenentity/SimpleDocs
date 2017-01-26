@@ -1,0 +1,19 @@
+<h2>My docs</h2>
+<div>
+  <button (click)="add()">
+    Add
+  </button>
+</div>
+<ul class="docs">
+  <li *ngFor = "let doc of docs"
+      [class.selected]="doc === selectedDoc"
+      (click)="onSelect(doc)">
+    <span class = "badge">{{doc.id}} </span>
+    <span>{{doc.number}}</span>
+    <span>{{doc.description}}</span>
+    <span class = "buttons">
+      <button class="edit"   (click)="gotoDetail(doc); $event.stopPropagation()">()</button>
+      <button class="delete" (click)="delete(doc);     $event.stopPropagation()">x</button>
+    </span>
+  </li>
+</ul>
